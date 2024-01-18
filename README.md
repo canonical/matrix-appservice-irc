@@ -1,4 +1,4 @@
-[![matrix-appservice-app](https://snapcraft.io/matrix-appservice-app/badge.svg)](https://snapcraft.io/matrix-appservice-app)
+[![matrix-appservice-irc](https://snapcraft.io/matrix-appservice-irc/badge.svg)](https://snapcraft.io/matrix-appservice-irc)
 
 # Matrix IRC bridge Snap
 
