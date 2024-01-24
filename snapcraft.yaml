@@ -17,6 +17,7 @@ apps:
     command: "bin/node $SNAP/app/app.js"
     plugs:
       - network
+      - network-bind
     environment:
       LD_PRELOAD: "$SNAP/libfreebindfree.so"
 parts:
