@@ -55,4 +55,7 @@ parts:
       mv node_modules app/
       mv lib app/
       mv app/ $CRAFT_PRIME/
-    stage-packages: [sipcalc, iproute2, openssl, libatm1, musl] 
+    stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
+layout:
+  /etc/matrix-appservice-irc:
+    bind: $SNAP_DATA/etc/matrix-appservice-irc
