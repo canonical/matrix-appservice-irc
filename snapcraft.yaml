@@ -11,6 +11,13 @@ confinement: strict
 architectures:
   - build-on: [amd64]
     build-for: [amd64]
+plugs:
+  etc-matrix-appservice-irc:
+    interface: system-files
+    read:
+    - /etc/matrix-appservice-irc
+    write:
+    - /etc/matrix-appservice-irc
 apps:
   matrix-appservice-irc:
     #command: "bin/node $SNAP/app.js -c /data/config.yaml -f /data/appservice-registration-irc.yaml"
@@ -18,6 +25,7 @@ apps:
     plugs:
       - network
       - network-bind
+      - etc-matrix-appservice-irc
     environment:
       LD_PRELOAD: "$SNAP/libfreebindfree.so"
 parts:
@@ -56,6 +64,3 @@ parts:
       mv lib app/
       mv app/ $CRAFT_PRIME/
     stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
-layout:
-  /etc/matrix-appservice-irc:
-    bind: $SNAP_DATA/etc/matrix-appservice-irc
