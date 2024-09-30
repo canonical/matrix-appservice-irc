@@ -26,6 +26,7 @@ apps:
       - network
       - network-bind
       - etc-matrix-appservice-irc
+      - home
     environment:
       LD_PRELOAD: "$SNAP/libfreebindfree.so"
 parts:
