@@ -22,6 +22,8 @@ apps:
   matrix-appservice-irc:
     #command: "bin/node $SNAP/app.js -c /data/config.yaml -f /data/appservice-registration-irc.yaml"
     command: "bin/node $SNAP/app/app.js"
+    daemon: simple
+    install-mode: disable
     plugs:
       - network
       - network-bind
