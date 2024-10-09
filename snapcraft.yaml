@@ -66,8 +66,12 @@ parts:
       mv node_modules app/
       mv lib app/
       mv app/ $CRAFT_PRIME/
+    stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
+  matrix-appservice-irc-wrapper:
+    after: [node, freebindfree, matrix-appservice-irc]
+    plugin: dump
+    source: .
     override-prime: |
-      snapcraftctl prime
+      craftctl default
       cp matrix-appservice-irc-wrapper.sh $SNAPCRAFT_PRIME/bin/
       chmod +x $SNAPCRAFT_PRIME/bin/matrix-appservice-irc-wrapper.sh
-    stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
