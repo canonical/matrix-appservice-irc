@@ -21,7 +21,7 @@ plugs:
 apps:
   matrix-appservice-irc:
     #command: "bin/node $SNAP/app.js -c /data/config.yaml -f /data/appservice-registration-irc.yaml"
-    command: "bin/node $SNAP/app/app.js"
+    command: "bin/matrix-appservice-irc-wrapper.sh"
     daemon: simple
     install-mode: disable
     plugs:
@@ -66,4 +66,8 @@ parts:
       mv node_modules app/
       mv lib app/
       mv app/ $CRAFT_PRIME/
+    override-prime: |
+      snapcraftctl prime
+      cp matrix-appservice-irc-wrapper.sh $SNAPCRAFT_PRIME/bin/
+      chmod +x $SNAPCRAFT_PRIME/bin/matrix-appservice-irc-wrapper.sh
     stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
