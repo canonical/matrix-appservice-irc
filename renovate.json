@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "prBodyNotes": [
+        "---",
+		"### Pre-merge checks",
+        "- [ ] The Release Notes do not describe any breaking changes.",
+        "- [ ] The Node version is the same as the one in the [IRC Bridge Dockerfile](https://github.com/matrix-org/matrix-appservice-irc/blob/develop/Dockerfile)."
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)snapcraft.yaml$"],
+      "description": "Update Matrix Appservice IRC",
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "source-tag: (?<currentValue>.+)",
+        "version: (?<currentValue>.+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "matrix-org/matrix-appservice-irc",
+      "versioningTemplate": "semver-coerced"
+    }
+  ]
+}
