@@ -11,6 +11,11 @@ confinement: strict
 architectures:
   - build-on: [amd64]
     build-for: [amd64]
+issues: https://github.com/canonical/matrix-appservice-irc/issues
+source-code: https://github.com/canonical/matrix-appservice-irc
+website: https://github.com/canonical/matrix-appservice-irc
+icon: icon.png
+
 plugs:
   etc-matrix-appservice-irc:
     interface: system-files
