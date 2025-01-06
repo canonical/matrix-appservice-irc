@@ -1,4 +1,4 @@
-# Copyright 2024 Canonical Ltd.
+# Copyright 2025 Canonical Ltd.
 # See LICENSE file for licensing details.
 
 name: matrix-appservice-irc
@@ -71,6 +71,7 @@ parts:
       mv node_modules app/
       mv lib app/
       mv app/ $CRAFT_PRIME/
+      ln -srf $SNAPCRAFT_PART_INSTALL/lib/x86_64-linux-musl/libc.so $SNAPCRAFT_PART_INSTALL/lib/libc.musl-x86_64.so.1
     stage-packages: [sipcalc, iproute2, openssl, libatm1, musl]
   matrix-appservice-irc-wrapper:
     after: [node, freebindfree, matrix-appservice-irc]
