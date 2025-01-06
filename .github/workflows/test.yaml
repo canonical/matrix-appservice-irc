@@ -1,0 +1,26 @@
+name: Test build Snap
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: snapcore/action-build@v1
+      id: snapcraft
+  required_status_checks:
+    name: Required Build Test Status Check
+    runs-on: ubuntu-latest
+    needs:
+      - build-test
+    if: always() && !cancelled()
+    timeout-minutes: 5
+    steps:
+      - run: |
+          [ '${{ needs.build-test.result }}' = 'success' ] || (echo build-test failed && false)
