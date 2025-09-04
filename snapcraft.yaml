@@ -58,7 +58,7 @@ parts:
     source-type: git
     override-build: |
       npm install -g yarn
-      npm install @matrix-org/matrix-sdk-crypto-nodejs
+      npm install @matrix-org/matrix-sdk-crypto-nodejs@0.3.0-beta.1
       yarn --strict-semver --frozen-lockfile
       rm -rf node_modules
       yarn cache clean
