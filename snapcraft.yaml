@@ -4,7 +4,7 @@
 name: matrix-appservice-irc
 summary: matrix-appservice-irc snap
 description: An IRC bridge for Matrix
-version: 3.0.5
+version: 4.0.0
 base: core22
 license: Apache-2.0
 confinement: strict
@@ -54,7 +54,7 @@ parts:
     after: [node, freebindfree]
     plugin: dump
     source: https://github.com/matrix-org/matrix-appservice-irc.git
-    source-tag: 3.0.5
+    source-tag: 4.0.0
     source-type: git
     override-build: |
       npm install -g yarn
